@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 import { authStore } from './authStore';
-import { videoStore } from './videoStore';
+import { playlistStore } from './playlistStore';
 
 export class RootStore {
   constructor() {
@@ -9,7 +9,7 @@ export class RootStore {
   };
 
   authStore = authStore;
-  videoStore = videoStore;
+  playlistStore = playlistStore;
 };
 
 export const rootStore = new RootStore();

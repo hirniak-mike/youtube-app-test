@@ -13,7 +13,7 @@ export class AuthStore {
     full_name: getFromStorage(USER_KEY)?.full_name || null,
   };
 
-  setSessionUser = (obj) => this.sessionUser = obj;
+  setSessionUser = (user) => this.sessionUser = user;
 
   refreshSessionUser = () => this.sessionUser = {
     token: getFromStorage(USER_KEY)?.token || null,

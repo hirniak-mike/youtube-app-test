@@ -21,6 +21,8 @@
   font-size: 26px;
   transition: all ease .2s;
   outline: none;
+  cursor: pointer;
+  user-select: none;
   &:hover, &:focus {
     text-shadow: 0 0 5px skyblue;
   }

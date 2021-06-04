@@ -26,7 +26,7 @@ const Header = ({ authStore: { sessionUser: { token, full_name }, refreshSession
           <button onClick={handleLogOut} type='button' className={s.log_out}>Log out</button>
         </div> :
         <div className={`main_container ${s.nav_wrapper} ${s.nav_wrapper__start}`}>
-          <Link to={MAIN} className={s.logo}>Logo</Link>
+          <span className={s.logo}>Logo</span>
         </div>
       }
     </header>
