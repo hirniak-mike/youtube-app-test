@@ -1,0 +1,47 @@
+@import '../../Res/Styles/colors.scss';
+
+.header {
+  flex-shrink: 0;
+  color: white;
+  background-color: $main_blue;
+  padding: 5px 0;
+  box-shadow: 0px 0px 10px 5px $main_blue;
+}
+
+.nav_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__start {
+    justify-content: flex-start;
+  }
+}
+
+.logo {
+  font-size: 26px;
+  transition: all ease .2s;
+  outline: none;
+  &:hover, &:focus {
+    text-shadow: 0 0 5px skyblue;
+  }
+}
+
+.log_out {
+  font-size: 16px;
+  color: white;
+  transition: all ease .2s;
+  &:hover, &:focus {
+    text-shadow: 0 0 5px skyblue;
+  }
+}
+
+.user_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hi_user {
+  font-size: 16px;
+  margin-left: 12px;
+}
