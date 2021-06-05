@@ -20,13 +20,17 @@ const Header = ({ authStore: { sessionUser: { token, full_name }, refreshSession
   return (
     <header className={s.header}>
       {token ?
-        <div className={`main_container ${s.nav_wrapper}`}>
-          <Link to={MAIN} className={s.logo}>Logo</Link>
-          <span className={s.hi_user}>{`Hi, ${full_name}`}</span>
-          <button onClick={handleLogOut} type='button' className={s.log_out}>Log out</button>
+        <div className="main_container">
+          <div className={s.nav_wrapper}>
+            <Link to={MAIN} className={s.logo}>Logo</Link>
+            <span className={s.hi_user}>{`Hi, ${full_name}`}</span>
+            <button onClick={handleLogOut} type='button' className={s.log_out}>Log out</button>
+          </div>
         </div> :
-        <div className={`main_container ${s.nav_wrapper} ${s.nav_wrapper__start}`}>
-          <span className={s.logo}>Logo</span>
+        <div className="main_container">
+          <div className={`${s.nav_wrapper} ${s.nav_wrapper__start}`}>
+            <span className={s.logo__sign_in}>Logo</span>
+          </div>
         </div>
       }
     </header>

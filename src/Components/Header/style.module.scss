@@ -4,7 +4,6 @@
   flex-shrink: 0;
   color: white;
   background-color: $main_blue;
-  padding: 5px 0;
   box-shadow: 0px 0px 10px 5px $main_blue;
 }
 
@@ -12,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 5px 0px;
   &__start {
     justify-content: flex-start;
   }
@@ -19,21 +19,39 @@
 
 .logo {
   font-size: 26px;
-  transition: all ease .2s;
+  padding: 0 4px;
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
   user-select: none;
+  transition: all ease-out .2s;
   &:hover, &:focus {
-    text-shadow: 0 0 5px skyblue;
+    background-color: rgba(white, .1);
   }
 }
 
+.logo__sign_in {
+  font-size: 26px;
+  outline: none;
+  user-select: none;
+}
+
 .log_out {
+  position: relative;
   font-size: 16px;
   color: white;
-  transition: all ease .2s;
-  &:hover, &:focus {
-    text-shadow: 0 0 5px skyblue;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 6px;
+    height: 1px;
+    width: 0;
+    background-color: white;
+    transition: all ease-out .2s;
+  }
+  &:hover::after, &:focus::after {
+    width: 83%;
   }
 }
 

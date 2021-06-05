@@ -3,3 +3,7 @@ export { default as Footer } from './Footer';
 export { default as SignInBlock } from './SignInBlock';
 export { default as Playlist } from './Playlist';
 export { default as VideoItem } from './VideoItem';
+export { default as Player } from './Player';
+export { default as VideoStatistic } from './VideoStatistic';
+export { default as VideoDesc } from './VideoDesc';
+export { default as StatisticItem } from './StatisticItem';

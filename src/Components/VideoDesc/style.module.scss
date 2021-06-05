@@ -1,0 +1,35 @@
+@import '../../Res/Styles/colors.scss';
+
+.title {
+  position: relative;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  &::after {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: $main_blue;
+  }
+}
+
+.img_wrapper {
+  width: 250px;
+  height: 140px;
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+.thumbnails {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.desc {
+  white-space: pre-wrap;
+  line-height: 21px;
+}

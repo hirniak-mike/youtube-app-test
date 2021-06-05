@@ -16,7 +16,7 @@ const Playlist = ({
     getPlaylist();
   }, []);
 
-  if (playlist.length === 0) {
+  if (!playlist.length) {
     return (
       <div className='loader_wrapper'>
         <Loader color={"#233156"} loading={true} size={50} />
@@ -40,11 +40,12 @@ const Playlist = ({
         overflow: "none"
       }}
     >
-      {playlist.map(({ id, snippet: { title, thumbnails } }) => (
+      {playlist.map(({ id, snippet: { title, thumbnails, resourceId } }) => (
         <VideoItem
           key={id}
           title={title}
-          img={thumbnails?.medium?.url}
+          img={thumbnails.medium.url}
+          videoId={resourceId.videoId}
         />
       ))}
       <div className={s.fake_item} />

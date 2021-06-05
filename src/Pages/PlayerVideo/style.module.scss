@@ -1,10 +1,8 @@
+
 @import '../../Res/Styles/keyframes.scss';
 
-.sign_in {
+.player_video {
   flex: 1 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0;
+  margin: 20px 0 30px 0;
   animation: smoothAppearance .4s ease;
 }

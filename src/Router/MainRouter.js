@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import ProtectedRoute from './ProtectedRoute';
-import { BasicPage, Main, SignIn, VideoItem } from '../Pages';
+import { BasicPage, Main, SignIn, PlayerVideo } from '../Pages';
 import { MAIN, SIGN_IN, VIDEO_ITEM } from '../Res/Consts/RouterUrl';
 
 const MainRouter = ({ authStore: { sessionUser: { token } } }) => {
@@ -20,8 +20,8 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }) => {
           token={token}
           redirectPath={SIGN_IN}
         />
-        <ProtectedRoute exact path={VIDEO_ITEM}
-          Component={<BasicPage><VideoItem /></BasicPage>}
+        <ProtectedRoute exact path={`${VIDEO_ITEM}:id`}
+          Component={<BasicPage><PlayerVideo /></BasicPage>}
           token={token}
           redirectPath={SIGN_IN}
         />

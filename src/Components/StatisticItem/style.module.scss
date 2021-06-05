@@ -1,0 +1,13 @@
+@import '../../Res/Styles/colors.scss';
+
+.statistic_item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  color: $main_blue;
+}
+
+.value {
+  font-size: 16px;
+}
