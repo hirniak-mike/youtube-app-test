@@ -25,7 +25,7 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }) => {
           token={token}
           redirectPath={SIGN_IN}
         />
-        <Route path='*' exact={true} component={() => <BasicPage><NotFound /></BasicPage>} />
+        <Route path='*' exact={true} render={() => <BasicPage><NotFound /></BasicPage>} />
         <Route exact path='/'>
           <Redirect to={MAIN} />
         </Route>
