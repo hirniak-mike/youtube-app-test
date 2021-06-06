@@ -17,7 +17,7 @@ export class PlaylistStore {
         this.playlist = data.items;
         this.nextPageToken = data.nextPageToken;
       });
-    });
+    }).catch(() => alert('Oooops, something went wrong'));
   };
 
   getNextItemsToPlaylist = () => {
@@ -27,7 +27,7 @@ export class PlaylistStore {
         this.playlist = [...this.playlist, ...data.items];
         this.nextPageToken = data.nextPageToken;
       });
-    });
+    }).catch(() => alert('Oooops, something went wrong'));
   };
 };
 

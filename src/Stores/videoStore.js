@@ -19,7 +19,7 @@ export class VideoStore {
         thumbnails: data.items[0].snippet.thumbnails.medium.url,
       };
     });
-  });
+  }).catch(() => alert('Oooops, something went wrong'));
 
   refreshVideoStore = () => {
     this.videoStatistics = {};

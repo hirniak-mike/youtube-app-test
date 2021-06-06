@@ -9,7 +9,7 @@ const NotFound = () => {
   return (
     <main className={s.page_not_found}>
       <div className="main_container">
-        <h2 className={s.title}>Ooopps, page not found</h2>
+        <h2 className={s.title}>Oooops, page not found</h2>
         <p className={s.go_main}>
           Go to the&nbsp;
           <Link to={MAIN} className={s.go_main_link}>main page</Link>
