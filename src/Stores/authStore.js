@@ -8,17 +8,11 @@ export class AuthStore {
     makeAutoObservable(this);
   };
 
-  sessionUser = {
-    token: getFromStorage(USER_KEY)?.token || null,
-    full_name: getFromStorage(USER_KEY)?.full_name || null,
-  };
+  sessionUser = { ...getFromStorage(USER_KEY) };
 
   setSessionUser = (user) => this.sessionUser = user;
 
-  refreshSessionUser = () => this.sessionUser = {
-    token: getFromStorage(USER_KEY)?.token || null,
-    full_name: getFromStorage(USER_KEY)?.full_name || null,
-  };
+  refreshSessionUser = () => this.sessionUser = { ...getFromStorage(USER_KEY) };
 };
 
 export const authStore = new AuthStore();

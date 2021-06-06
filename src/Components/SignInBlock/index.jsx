@@ -17,6 +17,10 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
     let userObj = {
       token: resp.accessToken,
       full_name: resp.name,
+      picture: {
+        is_silhouette: resp.picture.data.is_silhouette,
+        url: resp.picture.data.url,
+      }
     };
     saveToStorage(USER_KEY, userObj);
     setSessionUser(userObj);
@@ -27,6 +31,9 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
     let userObj = {
       token: resp.accessToken,
       full_name: resp.profileObj.name,
+      picture: {
+        url: resp.profileObj.imageUrl
+      }
     };
     saveToStorage(USER_KEY, userObj);
     setSessionUser(userObj);

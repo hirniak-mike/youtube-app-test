@@ -2,13 +2,14 @@ import React from 'react';
 import { inject, observer } from "mobx-react";
 import { Link, useHistory } from 'react-router-dom';
 
+import { ProfileInfo } from '../../Components';
 import { removeFromStorage } from '../../Utils/sessionStorage';
 import { USER_KEY } from '../../Res/Consts/LocalStorageKeys';
 import { MAIN, SIGN_IN } from '../../Res/Consts/RouterUrl';
 
 import s from './style.module.scss';
 
-const Header = ({ authStore: { sessionUser: { token, full_name }, refreshSessionUser } }) => {
+const Header = ({ authStore: { sessionUser: { token }, refreshSessionUser } }) => {
   const history = useHistory();
 
   const handleLogOut = () => {
@@ -23,9 +24,9 @@ const Header = ({ authStore: { sessionUser: { token, full_name }, refreshSession
         <div className="main_container">
           <div className={s.nav_wrapper}>
             <Link to={MAIN} className={s.logo}>Logo</Link>
-            <span className={s.hi_user}>{`Hi, ${full_name}`}</span>
             <button onClick={handleLogOut} type='button' className={s.log_out}>Log out</button>
           </div>
+          <ProfileInfo />
         </div> :
         <div className="main_container">
           <div className={`${s.nav_wrapper} ${s.nav_wrapper__start}`}>

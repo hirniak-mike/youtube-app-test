@@ -14,7 +14,7 @@ const BasicPage = ({ children }) => {
         {children}
         <Footer />
       </div>
-      <ScrollToTop showUnder={500} style={{ zIndex: "999", right: "30px", bottom: "30px" }}>
+      <ScrollToTop showUnder={500} style={{ zIndex: "999", right: "25px", bottom: "30px" }}>
         <MdArrowUpward className={s.scroll_icon} />
       </ScrollToTop>
     </>

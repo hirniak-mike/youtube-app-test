@@ -7,3 +7,4 @@ export { default as Player } from './Player';
 export { default as VideoStatistic } from './VideoStatistic';
 export { default as VideoDesc } from './VideoDesc';
 export { default as StatisticItem } from './StatisticItem';
+export { default as ProfileInfo } from './ProfileInfo';
