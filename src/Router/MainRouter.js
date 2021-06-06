@@ -25,10 +25,10 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }) => {
           token={token}
           redirectPath={SIGN_IN}
         />
-        <Route path='*' exact={true} render={() => <BasicPage><NotFound /></BasicPage>} />
         <Route exact path='/'>
           <Redirect to={MAIN} />
         </Route>
+        <Route path='*' exact render={() => <BasicPage><NotFound /></BasicPage>} />
       </Switch>
     </Router>
   );
