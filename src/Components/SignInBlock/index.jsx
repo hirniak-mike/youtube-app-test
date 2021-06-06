@@ -27,6 +27,8 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
     history.push(MAIN);
   };
 
+  const responseFailure = () => alert('Oooops, something went wrong');
+
   const responseGoogle = (resp) => {
     let userObj = {
       token: resp.accessToken,
@@ -51,6 +53,7 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
           icon={false}
           className={s.google_login_btn}
           onSuccess={responseGoogle}
+          onFailure={responseFailure}
           cookiePolicy={'single_host_origin'}
         />
         <FacebookLogin
@@ -60,6 +63,7 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
           cssClass={s.facebook_login_btn}
           textButton="Facebook"
           callback={responseFacebook}
+          onFailure={responseFailure}
         />
       </div>
     </div>
