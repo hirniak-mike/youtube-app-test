@@ -1,5 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import Linkify from 'react-linkify';
 
 import s from './style.module.scss';
 
@@ -11,7 +12,13 @@ const VideoDesc = ({ videoStore: { videoDesc } }) => {
         <div className={s.img_wrapper}>
           <img src={videoDesc.thumbnails} alt="Video Thumbnails" className={s.thumbnails} />
         </div>
-        <p className={s.desc}>{videoDesc.description}</p>
+        <Linkify componentDecorator={(decoratedHref, decoratedText, key) => (
+          <a target="blank" href={decoratedHref} key={key}>
+            {decoratedText}
+          </a>
+        )}>
+          <p className={s.desc}>{videoDesc.description}</p>
+        </Linkify>
       </div>
     </div>
   );
