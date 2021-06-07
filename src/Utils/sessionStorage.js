@@ -1,12 +1,12 @@
 export const saveToStorage = (name, data) => {
-  if (!window || !window.localStorage) {
+  if (!window?.localStorage) {
     return;
   }
   window.localStorage.setItem(name, JSON.stringify(data));
 };
 
 export const getFromStorage = (name) => {
-  if (!window || !window.localStorage) {
+  if (!window?.localStorage) {
     return null;
   }
   try {
@@ -18,7 +18,7 @@ export const getFromStorage = (name) => {
 };
 
 export const removeFromStorage = (name) => {
-  if (!window || !window.localStorage) {
+  if (!window?.localStorage) {
     return null;
   }
   try {

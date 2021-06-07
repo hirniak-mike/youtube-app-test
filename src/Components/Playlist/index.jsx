@@ -28,17 +28,12 @@ const Playlist = ({
       dataLength={playlist.length}
       next={getNextItemsToPlaylist}
       hasMore={nextPageToken}
+      className={s.wrapper_items}
       loader={
         <div className={s.loader_wrapper_next_page}>
           <Loader color={"#233156"} loading={true} size={30} />
         </div>
       }
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        flexWrap: "wrap",
-        overflow: "none"
-      }}
     >
       {playlist.map(({ id, snippet: { title, thumbnails, resourceId } }) => (
         <VideoItem

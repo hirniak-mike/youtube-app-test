@@ -1,19 +1,24 @@
 import axios from 'axios';
 import { youtubeApi, playlistId } from './BaseApi';
 
-const request = axios.create({
+const getRequestYoutube = axios.create({
   baseURL: youtubeApi,
+  method: 'get',
+  params: {
+    key: process.env.REACT_APP_YOUTUBE_API_KEY,
+    part: 'snippet',
+  },
   headers: { 'Content-Type': 'application/json' }
 });
 
 export const getYoutubePlaylist = (maxResults) => {
-  return request.get(`playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${maxResults}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+  return getRequestYoutube(`playlistItems?playlistId=${playlistId}&maxResults=${maxResults}`)
 };
 
 export const getYoutubePlaylistNextPage = (maxResults, pageToken) => {
-  return request.get(`playlistItems?part=snippet&playlistId=${playlistId}&maxResults=${maxResults}&pageToken=${pageToken}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+  return getRequestYoutube(`playlistItems?playlistId=${playlistId}&maxResults=${maxResults}&pageToken=${pageToken}`)
 };
 
 export const getVideoDetails = (id) => {
-  return request.get(`videos?part=statistics&part=snippet&id=${id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
+  return getRequestYoutube(`videos?part=statistics&id=${id}`)
 };
