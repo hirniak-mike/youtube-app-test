@@ -64,6 +64,7 @@ const SignInBlock = ({ authStore: { setSessionUser } }) => {
           textButton="Facebook"
           callback={responseFacebook}
           onFailure={responseFailure}
+          isMobile={false}
         />
       </div>
     </div>
