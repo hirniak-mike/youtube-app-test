@@ -4,19 +4,21 @@ import { MdArrowUpward } from "react-icons/md";
 
 import { Header, Footer } from '../../Components/';
 
-import s from './style.module.scss';
+import { SBasicPage, ScrollToTopWrapper } from './BasicPage.style'
 
 const BasicPage: React.FC = ({ children }) => {
   return (
     <>
-      <div className={s.basic_page}>
+      <SBasicPage>
         <Header />
         {children}
         <Footer />
-      </div>
-      <ScrollToTop showUnder={500} style={{ zIndex: "999", right: "25px", bottom: "30px" }}>
-        <MdArrowUpward className={s.scroll_icon} />
-      </ScrollToTop>
+      </SBasicPage>
+      <ScrollToTopWrapper>
+        <ScrollToTop showUnder={500} style={{ zIndex: "999", right: "25px", bottom: "30px" }}>
+          <MdArrowUpward className='scroll_icon' />
+        </ScrollToTop>
+      </ScrollToTopWrapper>
     </>
   );
 };

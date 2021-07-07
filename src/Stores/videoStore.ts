@@ -1,14 +1,15 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 
 import { getVideoDetails } from '../Api/ApiService';
+import { IVideoStatistics, IVideoDesc } from '../Res/Consts/Interfaces';
 
 export class VideoStore {
   constructor() {
     makeAutoObservable(this);
   };
 
-  videoStatistics = {};
-  videoDesc = {};
+  videoStatistics: IVideoStatistics | {} = {};
+  videoDesc: IVideoDesc | {} = {};
 
   getVideoItemDetails = (id: string) => getVideoDetails(id).then(({ data }) => {
     runInAction(() => {

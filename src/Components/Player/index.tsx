@@ -3,18 +3,18 @@ import YouTube from 'react-youtube';
 
 import { IProps } from './player.types';
 
-import s from './style.module.scss';
+import { SPlayerBlock } from './Player.style';
 
 const Player: React.FC<IProps> = ({ videoId }) => {
   return (
-    <div className={s.player_block}>
+    <SPlayerBlock>
       <YouTube
         videoId={videoId}
-        className={s.player}
-        containerClassName={s.player_wrapper}
+        className='player'
+        containerClassName='player_wrapper'
         opts={{ playerVars: { autoplay: 1 } }}
       />
-    </div>
+    </SPlayerBlock>
   );
 };
 

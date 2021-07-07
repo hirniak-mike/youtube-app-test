@@ -2,13 +2,13 @@ import React from 'react';
 
 import { SignInBlock } from '../../Components';
 
-import s from './style.module.scss';
+import { SSingIn } from './SignIn.style';
 
 const SignIn: React.FC = () => {
   return (
-    <main className={s.sign_in}>
+    <SSingIn>
       <SignInBlock />
-    </main>
+    </SSingIn>
   );
 };
 

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { IProps } from './statisticItem.types';
 
-import s from './style.module.scss';
+import { SStatisticItem } from './StatisticItem.style';
 
 const StaticticItem: React.FC<IProps> = ({ icon, value, tooltip }) => {
   return (
-    <div data-tooltip={tooltip} className={s.statistic_item}>
+    <SStatisticItem data-tooltip={tooltip}>
       {icon}
-      <span className={s.value}>{value}</span>
-    </div>
+      <span className='value'>{value}</span>
+    </SStatisticItem>
   );
 };
 

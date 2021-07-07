@@ -11,8 +11,7 @@ export const getFromStorage = (name: string) => {
   }
   try {
     return JSON.parse(window.localStorage.getItem(name) || '');
-  } catch (e) {
-    console.error(e);
+  } catch {
     return null;
   }
 };
@@ -23,8 +22,7 @@ export const removeFromStorage = (name: string) => {
   }
   try {
     window.localStorage.removeItem(name);
-  } catch (e) {
-    console.error(e);
+  } catch {
     return null;
   }
 };

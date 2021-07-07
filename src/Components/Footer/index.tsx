@@ -1,17 +1,17 @@
 import React from 'react';
 
-import s from './style.module.scss';
+import { SFooter } from './Footer.style';
 
 const Footer: React.FC = () => {
   return (
-    <footer className={s.footer}>
+    <SFooter>
       <div className='main_container'>
-        <p className={s.text}>
+        <p className='text'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque porro quaerat tempore,
           in natus quas molestias iste, neque blanditiis necessitatibus dolor error odio? Modi, possimus.
         </p>
       </div>
-    </footer>
+    </SFooter>
   );
 };
 

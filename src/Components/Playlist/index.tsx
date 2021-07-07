@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { inject, observer } from 'mobx-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Loader from "react-spinners/ClipLoader";
+import { HalfCircleSpinner } from 'react-epic-spinners';
 
 import { VideoItem } from '../../Components';
 
-import { IProps, IPlaylist } from './playlist.types';
+import { IProps } from './playlist.types';
+import { IPlaylist } from '../../Res/Consts/Interfaces';
 
-import s from './style.module.scss';
+import { SPlaylist } from './Playlist.style';
 
 const Playlist: React.FC<IProps> = ({
   playlistStore: {
@@ -21,33 +22,36 @@ const Playlist: React.FC<IProps> = ({
   if (!playlist.length) {
     return (
       <div className='loader_wrapper'>
-        <Loader color={"#233156"} loading={true} size={50} />
+        <HalfCircleSpinner size={80} animationDuration={1000} />
       </div>
     );
   };
   return (
-    <InfiniteScroll
-      dataLength={playlist.length}
-      next={getNextItemsToPlaylist}
-      hasMore={nextPageToken}
-      className={s.wrapper_items}
-      loader={
-        <div className={s.loader_wrapper_next_page}>
-          <Loader color={"#233156"} loading={true} size={30} />
-        </div>
-      }
-    >
-      {playlist.map(({ id, snippet: { title, thumbnails, resourceId } }: IPlaylist) => (
-        <VideoItem
-          key={id}
-          title={title}
-          img={thumbnails.medium.url}
-          videoId={resourceId.videoId}
-        />
-      ))}
-      <div className={s.fake_item} />
-      <div className={s.fake_item} />
-    </InfiniteScroll>
+    <SPlaylist>
+      <InfiniteScroll
+        dataLength={playlist.length}
+        next={getNextItemsToPlaylist}
+        hasMore={nextPageToken}
+        className='wrapper_items'
+        loader={
+          <div className='loader_wrapper loader_wrapper_next_page'>
+            <HalfCircleSpinner size={50} animationDuration={1000} />
+          </div>
+        }
+      >
+        {playlist.map(({ videoId, thumbnails, title, publishedAt }: IPlaylist) => (
+          <VideoItem
+            key={videoId}
+            title={title}
+            img={thumbnails}
+            videoId={videoId}
+            publishedAt={publishedAt}
+          />
+        ))}
+        <div className='fake_item' />
+        <div className='fake_item' />
+      </InfiniteScroll>
+    </SPlaylist>
   );
 };
 

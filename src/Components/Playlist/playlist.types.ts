@@ -4,18 +4,8 @@ export interface IProps {
 };
 
 export interface IPlaylist {
-  id: string,
-  snippet: ISnippet
-};
-
-interface ISnippet {
+  description: string,
+  videoId: string,
+  thumbnails: string,
   title: string,
-  thumbnails: {
-    medium: {
-      url: string
-    }
-  },
-  resourceId: {
-    videoId: string
-  },
-}
+};

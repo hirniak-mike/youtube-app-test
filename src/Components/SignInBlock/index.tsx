@@ -6,55 +6,55 @@ import GoogleLogin from 'react-google-login';
 
 import { saveToStorage } from '../../Utils/sessionStorage';
 import { USER_KEY } from '../../Res/Consts/LocalStorageKeys';
-import { MAIN } from '../../Res/Consts/RouterUrl';
+import { PLAYLIST } from '../../Res/Consts/RouterUrl';
 
 import { IProps, responseFunc } from './signInBlock.types';
 import { voidFunc } from '../../Res/Consts/Interfaces';
 
-import s from './style.module.scss';
+import { SSignInBlock } from './SignInBlock.style';
 
 const SignInBlock: React.FC<IProps> = ({ authStore: { setSessionUser } }) => {
   const history = useHistory();
 
-  const responseFacebook: responseFunc = (resp) => {
+  const responseFacebook: responseFunc = ({ accessToken, name, picture: { data } }) => {
     let userObj = {
-      token: resp.accessToken,
-      full_name: resp.name,
+      token: accessToken,
+      full_name: name,
       picture: {
-        is_silhouette: resp.picture.data.is_silhouette,
-        url: resp.picture.data.url,
+        is_silhouette: data.is_silhouette,
+        url: data.url,
       }
     };
     saveToStorage(USER_KEY, userObj);
     setSessionUser(userObj);
-    history.push(MAIN);
+    history.push(PLAYLIST);
   };
 
   const responseFailure: voidFunc = () => alert('Oooops, something went wrong');
 
-  const responseGoogle: responseFunc = (resp) => {
+  const responseGoogle: responseFunc = ({ accessToken, profileObj: { name }, profileObj: { imageUrl } }) => {
     let userObj = {
-      token: resp.accessToken,
-      full_name: resp.profileObj.name,
+      token: accessToken,
+      full_name: name,
       picture: {
-        url: resp.profileObj.imageUrl
+        url: imageUrl
       }
     };
     saveToStorage(USER_KEY, userObj);
     setSessionUser(userObj);
-    history.push(MAIN);
+    history.push(PLAYLIST);
   };
 
   return (
-    <div className={s.sign_in}>
-      <h2 className={s.title}>Sign In</h2>
-      <p className={s.text}>Sign in with Google or Facebook</p>
-      <div className={s.btn_wrapper}>
+    <SSignInBlock>
+      <h2 className='title'>Увійти</h2>
+      <p className='text'>Увійдіть за допомогою Google або Facebook</p>
+      <div className='btn_wrapper'>
         <GoogleLogin
           clientId={`${process.env.REACT_APP_GOOGLE_APP_ID}`}
           buttonText="Google"
           icon={false}
-          className={s.google_login_btn}
+          className='google_login_btn'
           onSuccess={responseGoogle}
           onFailure={responseFailure}
           cookiePolicy={'single_host_origin'}
@@ -63,14 +63,14 @@ const SignInBlock: React.FC<IProps> = ({ authStore: { setSessionUser } }) => {
           appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
           autoLoad={false}
           fields="name,email,picture"
-          cssClass={s.facebook_login_btn}
+          cssClass='facebook_login_btn'
           textButton="Facebook"
           callback={responseFacebook}
           onFailure={responseFailure}
           isMobile={false}
         />
       </div>
-    </div>
+    </SSignInBlock>
   );
 };
 

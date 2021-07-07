@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
-import Loader from "react-spinners/ClipLoader";
+import { HalfCircleSpinner } from 'react-epic-spinners';
 
 import { Player, VideoStatistic, VideoDesc } from '../../Components';
 
 import { IProps } from './playerVideo.types';
 import { IUseParams } from '../../Res/Consts/Interfaces';
 
-import s from './style.module.scss';
+import { SPlayerVideo } from './PlayerVideo.style';
 
 const PlayerVideo: React.FC<IProps> = ({ videoStore: { getVideoItemDetails, refreshVideoStore, videoStatistics } }) => {
   const { id } = useParams<IUseParams>();
@@ -20,12 +20,12 @@ const PlayerVideo: React.FC<IProps> = ({ videoStore: { getVideoItemDetails, refr
   }, []);
 
   return (
-    <main className={s.player_video}>
+    <SPlayerVideo>
       <div className="main_container">
         <Player videoId={id} />
         {!Object.keys(videoStatistics).length ?
           <div className='loader_wrapper'>
-            <Loader color={"#233156"} loading={true} size={50} />
+            <HalfCircleSpinner size={80} animationDuration={1000} />
           </div> :
           <>
             <VideoStatistic />
@@ -33,7 +33,7 @@ const PlayerVideo: React.FC<IProps> = ({ videoStore: { getVideoItemDetails, refr
           </>
         }
       </div>
-    </main>
+    </SPlayerVideo>
   );
 };
 

@@ -1,10 +1,9 @@
-import React from 'react';
 import { inject, observer } from "mobx-react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import ProtectedRoute from './ProtectedRoute';
-import { BasicPage, Main, SignIn, PlayerVideo, NotFound } from '../Pages';
-import { MAIN, SIGN_IN, VIDEO_ITEM } from '../Res/Consts/RouterUrl';
+import { BasicPage, PlaylistPage, SignIn, PlayerVideo, NotFound } from '../Pages';
+import { PLAYLIST, SIGN_IN, VIDEO_ITEM } from '../Res/Consts/RouterUrl';
 
 import { IMainRouterProps } from './router.types';
 
@@ -15,10 +14,10 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }: IMainRouterProps)
         <ProtectedRoute exact path={SIGN_IN}
           Component={< BasicPage > <SignIn /></BasicPage >}
           token={!token}
-          redirectPath={MAIN}
+          redirectPath={PLAYLIST}
         />
-        <ProtectedRoute exact path={MAIN}
-          Component={< BasicPage > <Main /></BasicPage >}
+        <ProtectedRoute exact path={PLAYLIST}
+          Component={< BasicPage > <PlaylistPage /></BasicPage >}
           token={token}
           redirectPath={SIGN_IN}
         />
@@ -28,7 +27,7 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }: IMainRouterProps)
           redirectPath={SIGN_IN}
         />
         <Route exact path='/' >
-          <Redirect to={MAIN} />
+          <Redirect to={PLAYLIST} />
         </Route>
         < Route path='*' exact render={() => <BasicPage><NotFound /></BasicPage >} />
       </Switch>
@@ -36,4 +35,4 @@ const MainRouter = ({ authStore: { sessionUser: { token } } }: IMainRouterProps)
   );
 };
 
-export default inject('authStore')(observer(MainRouter));
+export default inject('authStore', 'themeStore')(observer(MainRouter));

@@ -6,37 +6,37 @@ import { StatisticItem } from '../../Components';
 
 import { IProps } from './videoStatistic.types';
 
-import s from './style.module.scss';
+import { SVideoStatistic } from './VideoStatistic.style';
 
 const VideoStatistic: React.FC<IProps> = ({ videoStore: { videoStatistics } }) => {
   return (
-    <div className={s.statistic_wrapper}>
+    <SVideoStatistic>
       <StatisticItem
         value={videoStatistics.viewCount}
-        icon={<AiFillEye color='#233156' size='20px' />}
+        icon={<AiFillEye size='20px' />}
         tooltip="Views"
       />
       <StatisticItem
         value={videoStatistics.likeCount}
-        icon={<AiFillLike color='#233156' size='20px' />}
+        icon={<AiFillLike size='20px' />}
         tooltip="Likes"
       />
       <StatisticItem
         value={videoStatistics.dislikeCount}
-        icon={<AiFillDislike color='#233156' size='20px' />}
+        icon={<AiFillDislike size='20px' />}
         tooltip="Dislikes"
       />
       <StatisticItem
         value={videoStatistics.favoriteCount}
-        icon={<AiFillStar color='#233156' size='20px' />}
+        icon={<AiFillStar size='20px' />}
         tooltip="Favorites"
       />
       <StatisticItem
         value={videoStatistics.commentCount}
-        icon={<AiFillProfile color='#233156' size='20px' />}
+        icon={<AiFillProfile size='20px' />}
         tooltip="Comments"
       />
-    </div>
+    </SVideoStatistic>
   );
 };
 
