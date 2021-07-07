@@ -10,7 +10,11 @@ import { IUseParams } from '../../Res/Consts/Interfaces';
 
 import { SPlayerVideo } from './PlayerVideo.style';
 
-const PlayerVideo: React.FC<IProps> = ({ videoStore: { getVideoItemDetails, refreshVideoStore, videoStatistics } }) => {
+const PlayerVideo: React.FC<IProps> = ({
+  videoStore: {
+    getVideoItemDetails, refreshVideoStore, videoStatistics,
+  }
+}) => {
   const { id } = useParams<IUseParams>();
 
   useEffect(() => {

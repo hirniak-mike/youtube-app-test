@@ -8,13 +8,13 @@ import { removeFromStorage } from '../../Utils/sessionStorage';
 import { USER_KEY } from '../../Res/Consts/LocalStorageKeys';
 import { PLAYLIST, SIGN_IN } from '../../Res/Consts/RouterUrl';
 
-import { IProps } from './header.types';
+import { IHeaderProps } from './header.types';
 import { voidFunc } from '../../Res/Consts/Interfaces';
 import { THEMES } from '../../Theme/themeList';
 
 import { SHeader } from './Header.style';
 
-const Header: React.FC<IProps> = ({
+const Header: React.FC<IHeaderProps> = ({
   authStore: { sessionUser: { token }, refreshSessionUser },
   themeStore: { userTheme, setUserTheme }
 }) => {

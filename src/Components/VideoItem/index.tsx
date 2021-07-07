@@ -9,9 +9,11 @@ import { IProps } from './videoItem.types';
 import { SVideoItem } from './VideoItem.style';
 
 const VideoItem: React.FC<IProps> = ({ img, title, videoId, publishedAt }) => {
+  const handleSetDocTitle = () => document.title = title;
+
   return (
     <SVideoItem>
-      <Link to={`${VIDEO_ITEM}${videoId}`} className='video_item_link'>
+      <Link to={`${VIDEO_ITEM}${videoId}`} onClick={handleSetDocTitle} className='video_item_link'>
         <div className='top_card'>
           <div className='image_wrapper'>
             <img src={img} alt='Video Thumbnail' className='image' />

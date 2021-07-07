@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { PLAYLIST } from '../../Res/Consts/RouterUrl';
@@ -6,6 +6,10 @@ import { PLAYLIST } from '../../Res/Consts/RouterUrl';
 import { SPageNotFound } from './NotFound.style';
 
 const NotFound: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Not found'
+  }, []);
+
   return (
     <SPageNotFound>
       <div className="main_container">
