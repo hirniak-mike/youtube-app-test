@@ -13,7 +13,7 @@ export const ScrollToTopWrapper = styled.div`
     color: white;
     background-color: ${({ theme }) => theme.backgroundHeadFoot};
     border-radius: 50%;
-    box-shadow: 0px 0px 10px 2px rgba(163, 198, 196, 0.5);
+    box-shadow: 0px 0px 10px 2px rgba(224, 231, 233, 0.5);
     transition: all ease .3s;
     &:hover, &:focus {
       transform: scale(1.1);

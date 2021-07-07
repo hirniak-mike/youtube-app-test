@@ -122,4 +122,12 @@ export const GlobalStyle = createGlobalStyle`
       border-bottom-color: #892CDC !important;
     }
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; 
+    background-color: #E0E7E9;
+  }
+::-webkit-scrollbar-thumb {
+    background-color: #354649;
+  }
 `

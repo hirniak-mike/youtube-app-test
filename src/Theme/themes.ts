@@ -1,9 +1,9 @@
 export const DARK = {
-  backgroundColor: '#171010',
+  backgroundColor: '#151515',
   textColor: '#E0E7E9',
-  borderColor: '163, 198, 196',
-  backgroundCard: '#171010',
-  backgroundHeadFoot: '#171010',
+  borderColor: '224, 231, 233',
+  backgroundCard: '#171717',
+  backgroundHeadFoot: '#000000',
   boxshadowHeadFoot: '#E0E7E9',
   linkColor: '#A3C6C4',
 };
