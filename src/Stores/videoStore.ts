@@ -12,12 +12,13 @@ export class VideoStore {
   videoDesc: IVideoDesc | {} = {};
 
   getVideoItemDetails = (id: string) => getVideoDetails(id).then(({ data }) => {
+    const [videoDetails] = data.items;
     runInAction(() => {
-      this.videoStatistics = data.items[0].statistics;
+      this.videoStatistics = videoDetails.statistics;
       this.videoDesc = {
-        description: data.items[0].snippet.description,
-        title: data.items[0].snippet.title,
-        thumbnails: data.items[0].snippet.thumbnails.medium.url,
+        description: videoDetails.snippet.description,
+        title: videoDetails.snippet.title,
+        thumbnails: videoDetails.snippet.thumbnails.medium.url,
       };
     });
   }).catch(() => alert('Oooops, something went wrong'));
